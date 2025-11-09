@@ -2,3 +2,5 @@
 venv/
 prompts
 *migrations/
+*.sqlite3
+*db

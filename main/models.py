@@ -169,6 +169,10 @@ class ItemLocacao(models.Model):
     def __str__(self):
         return f"{self.locacao.numero_locacao} - {self.peca.tipo_peca.nome} (Qtd: {self.quantidade})"
 
+    @property
+    def valor_unitario(self):
+        return self.peca.tipo_peca.valor_locacao
+
     def save(self, *args, **kwargs):
         # Calcular valor total do item
         self.valor_total_item = self.quantidade * self.valor_unitario
